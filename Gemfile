@@ -49,6 +49,10 @@ gem "bootsnap", require: false
   gem 'bootstrap', '~> 4.6.0'
   gem 'jquery-rails'
 
+  # 環境変数を使用できる
+  gem 'dotenv-rails'
+
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
