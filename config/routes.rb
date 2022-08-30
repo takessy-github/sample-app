@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
-resources :products
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions',
+    :passwords => 'users/passwords',
+    :confirmations => 'users/confirmations',
+    :unlocks => 'users/unlocks',
+  }
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  devise_scope :user do
+    root :to => "users/sessions#new"
+    get "signup", :to => "users/registrations#new"
+    get "login", :to => "users/sessions#new"
+    delete "logout", :to => "users/sessions#destroy"
+  end
+  resources :products
 end
