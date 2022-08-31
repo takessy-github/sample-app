@@ -45,16 +45,21 @@ gem "bootsnap", require: false
 # deviseを使用できる
   gem 'devise'
  
-  # bootstrapを使用できる
-  gem 'bootstrap', '~> 4.6.0'
-  gem 'jquery-rails'
+# bootstrapを使用できる
+gem 'bootstrap', '~> 4.6.0'
+gem 'jquery-rails'
 
-  # 環境変数を使用できる
-  gem 'dotenv-rails'
+# 環境変数を使用できる
+gem 'dotenv-rails'
 
-  # socialiizatioinを使用できる
-  gem 'socialization'
+# socialiizatioinを使用できる
+gem 'socialization'
 
+# ページネーションを実装できる
+gem 'kaminari'
+
+# それらしい値を自動生成できる
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
