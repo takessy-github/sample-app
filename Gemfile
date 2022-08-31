@@ -52,6 +52,9 @@ gem "bootsnap", require: false
   # 環境変数を使用できる
   gem 'dotenv-rails'
 
+  # socialiizatioinを使用できる
+  gem 'socialization'
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"
