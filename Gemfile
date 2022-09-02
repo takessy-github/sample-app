@@ -61,6 +61,9 @@ gem 'kaminari'
 # それらしい値を自動生成できる
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+# ショッピングカートを実装できる
+gem 'acts_as_shopping_cart'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
