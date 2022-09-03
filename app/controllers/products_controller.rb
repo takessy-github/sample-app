@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy, :favorite]
+  PER = 15
 
   def index
     if sort_params.present?
@@ -19,8 +20,10 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @reviews = @product.reviews
+    @reviews = @product.reviews_with_id
     @review = @reviews.new
+    @star_repeat_select = Review.star_repeat_select
+
   end
 
   def new
