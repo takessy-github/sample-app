@@ -26,26 +26,6 @@ class ProductsController < ApplicationController
 
   end
 
-  def new
-    @product = Product.new
-    @Categories = Category.all
-  end
-
-  def create
-    @product = Product.new(product_params)
-    @product.save
-    redirect_to product_url @product
-  end
-  
-  def edid
-    @Categories = Category.all
-  end
-
-  def update
-    @product.update(product_params)
-    redirect_to product_url @product
-  end
-
   def destroy
     @product.destroy
     redirect_to product_url
