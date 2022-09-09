@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_04_115914) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_09_140946) do
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -30,6 +30,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_115914) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "major_category_id"
+    t.index ["major_category_id"], name: "index_categories_on_major_category_id"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -50,6 +52,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_115914) do
     t.datetime "created_at", precision: nil
     t.index ["likeable_id", "likeable_type"], name: "fk_likeables"
     t.index ["liker_id", "liker_type"], name: "fk_likes"
+  end
+
+  create_table "major_categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "mentions", force: :cascade do |t|
@@ -119,10 +128,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_115914) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "deleted_flg", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "major_categories"
   add_foreign_key "products", "categories"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
